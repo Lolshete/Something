@@ -1,0 +1,44 @@
+{% load staticfiles %}
+<header id='toppage'><h1>  AXIOM    </h1></header>
+<body>
+{% for obj in object_list %}<br/>
+{{obj.title}}<br/>
+{% endfor %}<br/>
+<link href={% static '/css/normalize.css'%} rel='stylesheet' type='text/css'>
+	<link href={% static 'css/style.css'%} rel='stylesheet' type='text/css'>
+<style>
+	body{
+	background-color:#000000;
+	color:#FFDD00;
+	font-size:20px;
+	text-align:center;	
+} 
+	div{
+	color:#FFDD00;	
+}
+
+	#foot1{
+	margin-top:500px;
+	color:#4CAECC;
+}
+	#foor1:hover{
+	color:#FFDD00;
+}
+   </style>
+<div class="pagination">
+    <span class="step-links">
+        {% if object_list.has_previous %}
+            <a href="?page={{ object_list.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+        </span>
+
+        {% if object_list.has_next %}
+            <a href="?page={{ object_list.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+</body>
+<footer id='foot1'><a href='http://127.0.0.1:8000/something/'>HOME</footer>
